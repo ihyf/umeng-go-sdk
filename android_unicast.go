@@ -1,7 +1,7 @@
 package umeng
 
 import (
-	"fmt"
+	//"fmt"
 )
 
 type AndroidPayloadBody struct {
@@ -15,9 +15,9 @@ type AndroidPayloadBody struct {
 }
 type AndroidPayload struct {
 	Display_type string `json:"display_type"`
-	Body	androidpayloadbody `json:"body"`
+	Body	AndroidPayloadBody `json:"body"`
+}
+type PayloadKeys struct {
+	Display_type string `json:"display_type"`
+}
 
-}
-func Version() {
-	fmt.Println("0.0.1")
-}
