@@ -1,6 +1,6 @@
 package umeng
 
-const (
+var (
 	DATA_KEYS = []string{
 		"appkey",
 		"timestamp",
@@ -20,8 +20,6 @@ const (
 		"expire_time",
 		"max_send_num",
 	}
-)
-var (
 	Host string = "http://msg.umeng.com"
 	UploadPath string = "/upload"
 	PostPath string = "/api/send"
