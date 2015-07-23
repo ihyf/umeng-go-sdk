@@ -1,15 +1,16 @@
 package umeng
 
 import (
-	"fmt"
-	"net/http"
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
+	"net/http"
 )
-type Data struct {
 
+type Data struct {
 }
+
 func Send(url string, p *Data) {
 	jstr, err := json.Marshal(p)
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jstr))
@@ -26,4 +27,3 @@ func Send(url string, p *Data) {
 	body, _ := ioutil.ReadAll(resp.Body)
 	fmt.Println("Response Body:", string(body))
 }
-
