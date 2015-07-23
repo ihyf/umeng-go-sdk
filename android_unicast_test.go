@@ -19,3 +19,19 @@ func TestAndroidPlayBody(t *testing.T) {
 	jstr, _ := json.Marshal(p)
 	fmt.Println(string(jstr))
 }
+func TestAndroidPayload(t *testing.T) {
+	p := &umeng.AndroidPayloadBody{
+		Ticker: "hello",
+		Title: "testtitle",
+		Text: "testText",
+		Play_vibrate: "testPlayVibrate",
+		Play_lights: "testPlayLights",
+		After_open: "testAfterOpen",
+	}
+	ap := &umeng.AndroidPayload{
+		Display_type: "testDisplayType",
+		Body: *p,
+	}
+	jstr, _ := json.Marshal(ap)
+	fmt.Println(string(jstr))
+}
