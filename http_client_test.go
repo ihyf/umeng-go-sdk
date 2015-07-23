@@ -4,5 +4,5 @@ import (
 	"testing"
 )
 func TestSend(t *testing.T) {
-	umeng.Send("string", nil)
+	umeng.Send("http://www.bing.com", nil)
 }
