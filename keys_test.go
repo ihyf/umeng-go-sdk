@@ -13,3 +13,8 @@ func TestVar (t *testing.T) {
 	fmt.Println(umeng.PostPath)
 	fmt.Println(umeng.AppMasterSecret)
 }
+
+func TestKInSlice (t *testing.T) {
+	fmt.Println(umeng.KInSlice("appkey", umeng.DATA_KEYS)) //This will return true
+	fmt.Println(umeng.KInSlice("novalidkey", umeng.DATA_KEYS)) //This will return false
+}

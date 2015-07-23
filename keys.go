@@ -24,4 +24,15 @@ var (
 	UploadPath string = "/upload"
 	PostPath string = "/api/send"
 	AppMasterSecret string
+
 )
+
+//The func which will export should begin with Uppercase word
+func KInSlice(a string, b []string)  bool {
+	for i := range b {
+		if a == b[i] {
+			return true
+		}
+	}
+	return false
+}
