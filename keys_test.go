@@ -1,11 +1,12 @@
 package umeng_test
+
 import (
-	"testing"
 	"fmt"
 	"github.com/netroby/umeng-go-sdk"
+	"testing"
 )
 
-func TestVar (t *testing.T) {
+func TestVar(t *testing.T) {
 	fmt.Println(umeng.DATA_KEYS)
 	fmt.Println(umeng.POLICY_KEYS)
 	fmt.Println(umeng.Host)
@@ -14,7 +15,7 @@ func TestVar (t *testing.T) {
 	fmt.Println(umeng.AppMasterSecret)
 }
 
-func TestKInSlice (t *testing.T) {
-	fmt.Println(umeng.KInSlice("appkey", umeng.DATA_KEYS)) //This will return true
+func TestKInSlice(t *testing.T) {
+	fmt.Println(umeng.KInSlice("appkey", umeng.DATA_KEYS))     //This will return true
 	fmt.Println(umeng.KInSlice("novalidkey", umeng.DATA_KEYS)) //This will return false
 }
