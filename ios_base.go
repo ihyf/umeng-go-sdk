@@ -21,7 +21,7 @@ type IOSPayload struct {
 	CustomFields     map[string]interface{}
 }
 
-func (p *IOSPayload) marshalPayload() ([]byte, error) {
+func (p *IOSPayload) MarshalPayload() ([]byte, error) {
 	var jsonStr []byte
 	//use simple payload
 	aps := IOSPayloadAPS{
