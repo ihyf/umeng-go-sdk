@@ -12,11 +12,13 @@ func TestIOSPayload (t *testing.T) {
 		Sound: "default",
 		Category: "default",
 		ContentAvailable: "default",
-		CustomFields:map[string]interface{}{
-			"key1":"value1",
-			"key2":"value2",
+		CustomFields: []umeng.CustomFields{
+			umeng.CustomFields{"key1", "value1"},
+			umeng.CustomFields{"key2", "value2"},
 		},
 	}
+	p.CustomFields = append(p.CustomFields, umeng.CustomFields{"key3", "value3"})
+
 	jStr, _ := p.MarshalPayload()
 	fmt.Println(string(jStr))
 }

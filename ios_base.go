@@ -5,6 +5,10 @@ import (
 	"errors"
 )
 
+type CustomFields struct {
+	Key string
+	Val string
+}
 type IOSPayloadAPS struct {
 	Alert            string `json:"alert"`
 	Badge            string `json:"badge"`
@@ -18,7 +22,7 @@ type IOSPayload struct {
 	Sound            string `json:"sound"`
 	Category         string `json:"category"`
 	ContentAvailable string `json:"content-available"`
-	CustomFields     map[string]interface{}
+	CustomFields     []CustomFields
 }
 
 func (p *IOSPayload) MarshalPayload() ([]byte, error) {
@@ -55,14 +59,14 @@ func (p *IOSPayload) MarshalPayload() ([]byte, error) {
 
 //Helper method to generate a json compatible map with aps key + custom fields
 //will return error if custom field named aps supplied
-func constructFullPayload(aps interface{}, customFields map[string]interface{}) (map[string]interface{}, error) {
+func constructFullPayload(aps interface{}, customFields []CustomFields) (map[string]interface{}, error) {
 	var fullPayload = make(map[string]interface{})
 	fullPayload["aps"] = aps
-	for key, value := range customFields {
-		if key == "aps" {
+	for i := range customFields {
+		if customFields[i].Key == "aps" {
 			return nil, errors.New("Cannot have a custom field named aps")
 		}
-		fullPayload[key] = value
+		fullPayload[customFields[i].Key] = customFields[i].Val
 	}
 	return fullPayload, nil
 }
