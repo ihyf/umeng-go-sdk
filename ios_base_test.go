@@ -17,7 +17,8 @@ func TestIOSPayload (t *testing.T) {
 			umeng.CustomFields{"key2", "value2"},
 		},
 	}
-	p.CustomFields = append(p.CustomFields, umeng.CustomFields{"key3", "value3"})
+	p.SetExtraField("key3", "value3")
+	p.CustomFields = append(p.CustomFields, umeng.CustomFields{"key4", "value4"})
 
 	jStr, _ := p.MarshalPayload()
 	fmt.Println(string(jStr))

@@ -24,7 +24,12 @@ type IOSPayload struct {
 	ContentAvailable string `json:"content-available"`
 	CustomFields     []CustomFields
 }
-
+/*
+	SetExtraField For IOSPayload
+ */
+func (p *IOSPayload) SetExtraField(key, value string) {
+	p.CustomFields = append(p.CustomFields, CustomFields{key, value})
+}
 func (p *IOSPayload) MarshalPayload() ([]byte, error) {
 	var jsonStr []byte
 	//use simple payload
