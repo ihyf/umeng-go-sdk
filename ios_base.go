@@ -5,6 +5,15 @@ import (
 	"errors"
 )
 
+var (
+	APS_KEYS = []string{
+		"alert",
+		"badge",
+		"sound",
+		"content-available",
+	}
+)
+
 type CustomFields struct {
 	Key string
 	Val string
@@ -24,9 +33,28 @@ type IOSPayload struct {
 	ContentAvailable string `json:"content-available"`
 	CustomFields     []CustomFields
 }
+type IOSUnicastNotification struct {
+	AppKey       string `json:"appkey"`
+	Timestamp    string `json:"timestamp"`
+	Type         string `json:"Type"`
+	DeviceTokens string `json:"device_tokens"`
+	AliasType    string `json:"alias_type"`
+}
+type IOSUnicast struct {
+	AppMasterSecret string
+	Notification    IOSUnicastNotification
+}
+
+func (c *IOSUnicast) SetAppMasterSecret(secret string) {
+	c.AppMasterSecret = secret
+}
+func (c *IOSUnicast) SetPredefinedKeyValue(key, value string) {
+
+}
+
 /*
 	SetExtraField For IOSPayload
- */
+*/
 func (p *IOSPayload) SetExtraField(key, value string) {
 	p.CustomFields = append(p.CustomFields, CustomFields{key, value})
 }

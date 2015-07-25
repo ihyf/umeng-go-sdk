@@ -1,16 +1,17 @@
 package umeng_test
+
 import (
+	"fmt"
 	"github.com/netroby/umeng-go-sdk"
 	"testing"
-	"fmt"
 )
 
-func TestIOSPayload (t *testing.T) {
+func TestIOSPayload(t *testing.T) {
 	p := &umeng.IOSPayload{
-		Alert: "Nomatter",
-		Badge: "Nsdf",
-		Sound: "default",
-		Category: "default",
+		Alert:            "Nomatter",
+		Badge:            "Nsdf",
+		Sound:            "default",
+		Category:         "default",
 		ContentAvailable: "default",
 		CustomFields: []umeng.CustomFields{
 			umeng.CustomFields{"key1", "value1"},
