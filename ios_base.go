@@ -3,6 +3,7 @@ package umeng
 import (
 	"encoding/json"
 	"errors"
+	"go/ast"
 )
 
 var (
@@ -39,6 +40,11 @@ type IOSUnicastNotification struct {
 	Type         string `json:"Type"`
 	DeviceTokens string `json:"device_tokens"`
 	AliasType    string `json:"alias_type"`
+	FileId		 string `json:"file_id"`
+	Filter 		 string `json:"filter"`
+	ProductionMode string `json:"production_mode"`
+	Description	string `json:"Description"`
+	ThirdPartyId string `json:"thirdparty_id"`
 }
 type IOSUnicast struct {
 	AppMasterSecret string
@@ -49,7 +55,10 @@ func (c *IOSUnicast) SetAppMasterSecret(secret string) {
 	c.AppMasterSecret = secret
 }
 func (c *IOSUnicast) SetPredefinedKeyValue(key, value string) {
-
+	if KInSlice(key, DATA_KEYS) == true {
+		c.Notification[key] = value
+	}
+	if KInSlice(key, )
 }
 
 /*
